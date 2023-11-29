@@ -13,7 +13,7 @@ public class Tahap2PBO {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
 
         String namaPenerimaNotifikasi = ""; 
-        boolean isAdmin = false; 
+        boolean isPustakawan = false; 
         
         List<Buku> daftarBuku = new ArrayList<>();
 
@@ -25,8 +25,8 @@ public class Tahap2PBO {
         int loginChoice = scanner.nextInt();
 
         if (loginChoice == 2) {
-            isAdmin = true;
-            System.out.println("Login Admin berhasil!");
+            isPustakawan = true;
+            System.out.println("Login Pustakawan berhasil!");
         } else {
             System.out.println("Login Anggota berhasil!");
         }
@@ -35,8 +35,8 @@ public class Tahap2PBO {
         do {
             System.out.println("\nPerpustakaan XYZ!");
 
-            if (isAdmin) {
-                System.out.println("Menu Admin:");
+            if (isPustakawan) {
+                System.out.println("Menu Pustakawan");
                 System.out.println("1. Tambah Buku");
                 System.out.println("2. Hapus Buku");
                 System.out.println("3. Lihat Ketersediaan Buku");
@@ -139,10 +139,10 @@ public class Tahap2PBO {
 
                 case 4 -> System.out.println("Terima kasih. Telah berkunjung ke Perpustakaan XYZ.");
 
-                default -> System.out.println("Pilihan tidak valid. Pilih menu 1-" + (isAdmin ? "6" : "4") + ".");
+                default -> System.out.println("Pilihan tidak valid. Pilih menu 1-" + (isPustakawan? "6" : "4") + ".");
                 }
             }
-        }while ((isAdmin && choice != 4) || (!isAdmin && choice != 4));
+        }while ((isPustakawan && choice != 4) || (!isPustakawan && choice != 4));
     }
 
     private static void lihatKetersediaanBuku(List<Buku> daftarBuku) {
